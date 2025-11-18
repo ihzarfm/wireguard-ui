@@ -27,7 +27,7 @@ import (
 
 var (
 	// command-line banner information
-	appVersion = "development"
+	appVersion = "v1.0.0"
 	gitCommit  = "N/A"
 	gitRef     = "N/A"
 	buildTime  = fmt.Sprintf(time.Now().UTC().Format("01-02-2006 15:04:05"))
@@ -44,7 +44,7 @@ var (
 	flagSmtpHelo                 = "localhost"
 	flagSendgridApiKey           string
 	flagEmailFrom                string
-	flagEmailFromName            = "WireGuard UI"
+	flagEmailFromName            = "HWG VPN Manager"
 	flagTelegramToken            string
 	flagTelegramAllowConfRequest = false
 	flagTelegramFloodWait        = 60
@@ -154,12 +154,12 @@ func init() {
 	// print only if log level is INFO or lower
 	if lvl <= log.INFO {
 		// print app information
-		fmt.Println("Wireguard UI")
+		fmt.Println("HWG VPN Manager")
 		fmt.Println("App Version\t:", appVersion)
 		fmt.Println("Git Commit\t:", gitCommit)
 		fmt.Println("Git Ref\t\t:", gitRef)
 		fmt.Println("Build Time\t:", buildTime)
-		fmt.Println("Git Repo\t:", "https://github.com/ngoduykhanh/wireguard-ui")
+		fmt.Println("Git Repo\t:", "https://github.com/ihzarfm/wireguard-ui")
 		fmt.Println("Authentication\t:", !util.DisableLogin)
 		fmt.Println("Bind address\t:", util.BindAddress)
 		//fmt.Println("Sendgrid key\t:", util.SendgridApiKey)

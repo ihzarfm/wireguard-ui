@@ -34,12 +34,12 @@ const (
 	DefaultUsername                        = "admin"
 	DefaultPassword                        = "admin"
 	DefaultIsAdmin                         = true
-	DefaultServerAddress                   = "10.252.1.0/24"
-	DefaultServerPort                      = 51820
+	DefaultServerAddress                   = "10.3.0.1/22"
+	DefaultServerPort                      = 51860
 	DefaultDNS                             = "1.1.1.1"
 	DefaultMTU                             = 1450
 	DefaultPersistentKeepalive             = 15
-	DefaultFirewallMark                    = "0xca6c" // i.e. 51820
+	DefaultFirewallMark                    = "0ca94" // i.e. 51820
 	DefaultTable                           = "auto"
 	DefaultConfigFilePath                  = "/etc/wireguard/wg0.conf"
 	UsernameEnvVar                         = "WGUI_USERNAME"
