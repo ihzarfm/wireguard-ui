@@ -187,16 +187,3 @@ Apply it
 rc-service wgui start
 rc-update add wgui default
 ```
-
-### Using Docker
-
-Set `WGUI_MANAGE_RESTART=true` to manage Wireguard interface restarts.
-Using `WGUI_MANAGE_START=true` can also replace the function of `wg-quick@wg0` service, to start Wireguard at boot, by
-running the container with `restart: unless-stopped`. These settings can also pick up changes to Wireguard Config File
-Path, after restarting the container. Please make sure you have `--cap-add=NET_ADMIN` in your container config to make
-this feature work.
-
-
-If you like the project and want to support it, you can *buy me a coffee* ☕
-
-<a href="https://www.buymeacoffee.com/khanhngo" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
