@@ -961,4 +961,10 @@ Wireguard Clients
             // 
         });
     </script>
+    <script>
+    // bikin tombol More trigger dropdown toggle
+        $(document).on('click', '.btn-more-trigger', function () {
+            $(this).siblings('.dropdown-toggle').dropdown('toggle');
+        });
+    </script>
 {{end}}

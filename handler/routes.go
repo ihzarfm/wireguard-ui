@@ -500,6 +500,16 @@ func NewClient(db store.IStore) echo.HandlerFunc {
 				return c.JSON(http.StatusInternalServerError, jsonHTTPResponse{false, "Cannot verify Wireguard preshared key"})
 			}
 		}
+
+		// log creation peer by user
+		username := currentUser(c)
+		if username == "" {
+			username = "system"
+		}
+		client.CreatedBy = username
+		client.UpdatedBy = username
+
+		//timestamp
 		client.CreatedAt = time.Now().UTC()
 		client.UpdatedAt = client.CreatedAt
 
@@ -707,6 +717,11 @@ func UpdateClient(db store.IStore) echo.HandlerFunc {
 			}
 		}
 
+		username := currentUser(c)
+		if username == "" {
+			username = "system"
+		}
+
 		// map new data
 		client.Name = _client.Name
 		client.Email = _client.Email
@@ -720,6 +735,7 @@ func UpdateClient(db store.IStore) echo.HandlerFunc {
 		client.PublicKey = _client.PublicKey
 		client.PresharedKey = _client.PresharedKey
 		client.UpdatedAt = time.Now().UTC()
+		client.UpdatedBy = username
 		client.AdditionalNotes = strings.ReplaceAll(strings.Trim(_client.AdditionalNotes, "\r\n"), "\r\n", "\n")
 
 		// write to the database

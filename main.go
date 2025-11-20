@@ -156,19 +156,19 @@ func init() {
 		// print app information
 		fmt.Println("HWG VPN Manager")
 		fmt.Println("App Version\t:", appVersion)
-		fmt.Println("Git Commit\t:", gitCommit)
-		fmt.Println("Git Ref\t\t:", gitRef)
+		//fmt.Println("Git Commit\t:", gitCommit)
+		//fmt.Println("Git Ref\t\t:", gitRef)
 		fmt.Println("Build Time\t:", buildTime)
 		fmt.Println("Git Repo\t:", "https://github.com/ihzarfm/wireguard-ui")
 		fmt.Println("Authentication\t:", !util.DisableLogin)
 		fmt.Println("Bind address\t:", util.BindAddress)
 		//fmt.Println("Sendgrid key\t:", util.SendgridApiKey)
-		fmt.Println("Email from\t:", util.EmailFrom)
+		//fmt.Println("Email from\t:", util.EmailFrom)
 		fmt.Println("Email from name\t:", util.EmailFromName)
 		//fmt.Println("Session secret\t:", util.SessionSecret)
-		fmt.Println("Custom wg.conf\t:", util.WgConfTemplate)
-		fmt.Println("Base path\t:", util.BasePath+"/")
-		fmt.Println("Subnet ranges\t:", util.GetSubnetRangesString())
+		//fmt.Println("Custom wg.conf\t:", util.WgConfTemplate)
+		//fmt.Println("Base path\t:", util.BasePath+"/")
+		//fmt.Println("Subnet ranges\t:", util.GetSubnetRangesString())
 	}
 }
 

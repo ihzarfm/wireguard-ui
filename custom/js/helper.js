@@ -43,6 +43,11 @@ function renderClientList(data) {
             additionalNotesHtml = `<span class="info-box-text" style="display: none"><i class="fas fa-additional_notes"></i>${obj.Client.additional_notes.toUpperCase()}</span>`
         }
 
+        const createdBy = obj.Client.created_by || 'system';
+        const updatedBy = obj.Client.updated_by || 'system';
+
+        console.log('DEBUG created/updated:', obj.Client.name, createdBy, updatedBy);
+
         // render client html content
         let html = `<div class="col-sm-6 col-md-6 col-lg-4" id="client_${obj.Client.id}">
                         <div class="info-box">
@@ -65,9 +70,7 @@ function renderClientList(data) {
                                 </div>
                                 ${telegramButton}
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-danger btn-sm">More</button>
-                                    <button type="button" class="btn btn-outline-danger btn-sm dropdown-toggle dropdown-icon" 
-                                        data-toggle="dropdown">
+                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="dropdown"><i class="fas fa-ellipsis-v mr-1"></i>
                                     </button>
                                     <div class="dropdown-menu" role="menu">
                                         <a class="dropdown-item" href="#" data-toggle="modal"
@@ -89,9 +92,11 @@ function renderClientList(data) {
                                 ${additionalNotesHtml}
                                 <span class="info-box-text"><i class="fas fa-envelope"></i> ${obj.Client.email}</span>
                                 <span class="info-box-text"><i class="fas fa-clock"></i>
-                                    ${prettyDateTime(obj.Client.created_at)}</span>
+                                    ${prettyDateTime(obj.Client.created_at)} · created by ${createdBy}
+                                </span>
                                 <span class="info-box-text"><i class="fas fa-history"></i>
-                                    ${prettyDateTime(obj.Client.updated_at)}</span>
+                                    ${prettyDateTime(obj.Client.updated_at)} · last edit by ${updatedBy}
+                                </span>
                                 <span class="info-box-text"><i class="fas fa-server" style="${obj.Client.use_server_dns ? "opacity: 1.0" : "opacity: 0.5"}"></i>
                                     ${obj.Client.use_server_dns ? 'DNS enabled' : 'DNS disabled'}</span>
                                 <span class="info-box-text"><i class="fas fa-file"></i>
