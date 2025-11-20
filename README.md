@@ -198,48 +198,6 @@ running the container with `restart: unless-stopped`. These settings can also pi
 Path, after restarting the container. Please make sure you have `--cap-add=NET_ADMIN` in your container config to make
 this feature work.
 
-## Build
-
-### Build docker image
-
-Go to the project root directory and run the following command:
-
-```sh
-docker build --build-arg=GIT_COMMIT=$(git rev-parse --short HEAD) -t wireguard-ui .
-```
-
-or
-
-```sh
-docker compose build --build-arg=GIT_COMMIT=$(git rev-parse --short HEAD)
-```
-
-:information_source: A container image is available on [Docker Hub](https://hub.docker.com/r/ngoduykhanh/wireguard-ui)
-which you can pull and use
-
-```
-docker pull ngoduykhanh/wireguard-ui
-````
-
-### Build binary file
-
-Prepare the assets directory
-
-```sh
-./prepare_assets.sh
-```
-
-Then build your executable
-
-```sh
-go build -o wireguard-ui
-```
-
-## License
-
-MIT. See [LICENSE](https://github.com/ngoduykhanh/wireguard-ui/blob/master/LICENSE).
-
-## Support
 
 If you like the project and want to support it, you can *buy me a coffee* ☕
 
