@@ -13,8 +13,8 @@ import (
 	"github.com/skip2/go-qrcode"
 	"golang.zx2c4.com/wireguard/wgctrl/wgtypes"
 
-	"github.com/ngoduykhanh/wireguard-ui/model"
-	"github.com/ngoduykhanh/wireguard-ui/util"
+	"github.com/ihzarfm/wireguard-ui/model"
+	"github.com/ihzarfm/wireguard-ui/util"
 )
 
 type JsonDB struct {
@@ -39,7 +39,6 @@ func (o *JsonDB) Init() error {
 	var clientPath = path.Join(o.dbPath, "clients")
 	var serverPath = path.Join(o.dbPath, "server")
 	var userPath = path.Join(o.dbPath, "users")
-	var wakeOnLanHostsPath = path.Join(o.dbPath, "wake_on_lan_hosts")
 	var serverInterfacePath = path.Join(serverPath, "interfaces.json")
 	var serverKeyPairPath = path.Join(serverPath, "keypair.json")
 	var globalSettingPath = path.Join(serverPath, "global_settings.json")
@@ -54,9 +53,6 @@ func (o *JsonDB) Init() error {
 	}
 	if _, err := os.Stat(userPath); os.IsNotExist(err) {
 		os.MkdirAll(userPath, os.ModePerm)
-	}
-	if _, err := os.Stat(wakeOnLanHostsPath); os.IsNotExist(err) {
-		os.MkdirAll(wakeOnLanHostsPath, os.ModePerm)
 	}
 
 	// server's interface

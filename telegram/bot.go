@@ -6,8 +6,8 @@ import (
 	"time"
 
 	"github.com/NicoNex/echotron/v3"
+	"github.com/ihzarfm/wireguard-ui/store"
 	"github.com/labstack/gommon/log"
-	"github.com/ngoduykhanh/wireguard-ui/store"
 )
 
 type SendRequestedConfigsToTelegram func(db store.IStore, userid int64) []string

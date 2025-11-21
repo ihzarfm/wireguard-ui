@@ -13,16 +13,16 @@ import (
 	"syscall"
 	"time"
 
+	"github.com/ihzarfm/wireguard-ui/store"
+	"github.com/ihzarfm/wireguard-ui/telegram"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/gommon/log"
-	"github.com/ngoduykhanh/wireguard-ui/store"
-	"github.com/ngoduykhanh/wireguard-ui/telegram"
 
-	"github.com/ngoduykhanh/wireguard-ui/emailer"
-	"github.com/ngoduykhanh/wireguard-ui/handler"
-	"github.com/ngoduykhanh/wireguard-ui/router"
-	"github.com/ngoduykhanh/wireguard-ui/store/jsondb"
-	"github.com/ngoduykhanh/wireguard-ui/util"
+	"github.com/ihzarfm/wireguard-ui/emailer"
+	"github.com/ihzarfm/wireguard-ui/handler"
+	"github.com/ihzarfm/wireguard-ui/router"
+	"github.com/ihzarfm/wireguard-ui/store/jsondb"
+	"github.com/ihzarfm/wireguard-ui/util"
 )
 
 var (
