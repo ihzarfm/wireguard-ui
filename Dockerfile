@@ -1,6 +1,6 @@
 # Build stage
 FROM --platform=${BUILDPLATFORM:-linux/amd64} golang:1.21-alpine3.19 AS builder
-LABEL maintainer="Khanh Ngo <k@ndk.name>"
+LABEL maintainer="ihzarfm"
 
 ARG BUILDPLATFORM
 ARG TARGETOS

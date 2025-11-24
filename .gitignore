@@ -1,30 +1,61 @@
-# Binaries for programs and plugins
+########################################
+# Go binaries
+########################################
+wireguard-ui
+wg-ui
 *.exe
 *.exe~
 *.dll
 *.so
 *.dylib
-wireguard-ui
-
-# Test binary, built with `go test -c`
 *.test
-
-# Output of the go coverage tool, specifically when used with LiteIDE
 *.out
 
-# Dependency directories and files (remove the comment below to include it)
-vendor/
+########################################
+# Secrets
+########################################
+.env
+.env.*
+secret/
+secret/*
+secret/session.key
+secrets/
+secrets/*
+
+########################################
+# Database JSON (client/users/server)
+########################################
+db/
+*.jsondb
+
+########################################
+# Build + runtime directories
+########################################
 assets/*
 !assets/.gitkeep
 node_modules/
+tmp/
+tmp/*
+/tmp/*
+*.log
 
-# IDEs
-.vscode
-.idea
+########################################
+# Docker local config
+########################################
+docker-compose.override.yml
 
-# Vim
+# Optional: kalau docker-compose.yaml lu sensitif
+# docker-compose.yaml
+
+########################################
+# IDE/editor configs
+########################################
+.vscode/
+.idea/
 .*.sw[op]
 
+########################################
 # Examples
+########################################
 examples/docker-compose/config
 examples/docker-compose/db

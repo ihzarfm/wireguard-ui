@@ -97,7 +97,7 @@ func BuildClientConfig(client model.Client, server model.Server, setting model.G
 // ClientDefaultsFromEnv to read the default values for creating a new client from the environment or use sane defaults
 func ClientDefaultsFromEnv() model.ClientDefaults {
 	clientDefaults := model.ClientDefaults{}
-	clientDefaults.AllowedIps = LookupEnvOrStrings(DefaultClientAllowedIpsEnvVar, []string{"10.3.0.0/22"})
+	clientDefaults.AllowedIps = LookupEnvOrStrings(DefaultClientAllowedIpsEnvVar, []string{})
 	clientDefaults.ExtraAllowedIps = LookupEnvOrStrings(DefaultClientExtraAllowedIpsEnvVar, []string{})
 	clientDefaults.UseServerDNS = LookupEnvOrBool(DefaultClientUseServerDNSEnvVar, true)
 	clientDefaults.EnableAfterCreation = LookupEnvOrBool(DefaultClientEnableAfterCreationEnvVar, true)
@@ -678,10 +678,28 @@ func LookupEnvOrInt(key string, defaultVal int) int {
 }
 
 func LookupEnvOrStrings(key string, defaultVal []string) []string {
-	if val, ok := os.LookupEnv(key); ok {
-		return strings.Split(val, ",")
+	val, ok := os.LookupEnv(key)
+	if !ok {
+		return defaultVal
 	}
-	return defaultVal
+
+	val = strings.TrimSpace(val)
+	if val == "" {
+		return defaultVal
+	}
+
+	parts := strings.Split(val, ",")
+	out := make([]string, 0, len(parts))
+	for _, p := range parts {
+		v := strings.TrimSpace(p)
+		if v != "" {
+			out = append(out, v)
+		}
+	}
+	if len(out) == 0 {
+		return defaultVal
+	}
+	return out
 }
 
 func LookupEnvOrFile(key string, defaultVal string) string {
